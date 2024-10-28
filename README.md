@@ -55,25 +55,31 @@
  9. Слияние в ветку master и разрешение конфликта
 - Ветка с изменениями была слита в ветку `master`. При слиянии возник конфликт, который был разрешен вручную:
   ```bash
-  git merge branch_name
+ git checkout -b новая_ветка
+ git add .
+ git commit -m "Добавил изменения в новой ветке"
+ git checkout master
+ git merge новая_ветка
   ```
 
  10. Удаление побочной ветки
 - Побочная ветка удалена после успешного слияния:
   ```bash
-  git branch -d branch_name
+  git branch -d новая_ветка
   ```
 
  11. Изменения и фиксация
 - Сделаны несколько изменений и зафиксированы с комментариями:
   ```bash
-  git commit -m "Комментарий к изменению"
+  git add .
+  git commit -m "Комментарий о внесённых изменениях"
   ```
 
  12. Откат коммита
 - Выбран нужный коммит, выполнен откат:
   ```bash
-  git revert <hash-коммита>
+  git log --oneline
+  git revert 669a3a3
   ```
 ![Screenshot](screenshots/4.png)
 ![Screenshot](screenshots/5.png)
@@ -81,8 +87,7 @@
  13. Создание ветки для отчёта
 - Создана отдельная ветка для оформления отчёта:
   ```bash
-  git branch report
-  git checkout report
+  git checkout -b report
   ```
 ![Screenshot](screenshots/6.png)
 
@@ -95,15 +100,12 @@
   ```bash
   git log --pretty=format:"%h - %ad - %an - %s" --date=short
   ```
-- Добавлено в отчёт и выполнена финальная фиксация изменений:
-  ```bash
-  git commit -m "Добавлена история операций в отчёт"
-  ```
+![Screenshot](screenshots/7.png)
 
  16. Синхронизация с GitHub
 - Локальные изменения отправлены в удалённый репозиторий на GitHub:
   ```bash
-  git push
+  git push origin report
   ```
 
 Вывод:
