@@ -53,13 +53,13 @@
 ![Screenshot](screenshots/3.png)
 
  9. Слияние в ветку master и разрешение конфликта
-- Ветка с изменениями была слита в ветку `master`. При слиянии возник конфликт, который был разрешен вручную:
+- Ветка с изменениями была слита в ветку `master`:
   ```bash
-git checkout -b новая_ветка
-git add .
-git commit -m "Добавил изменения в новой ветке"
-git checkout master
-git merge новая_ветка
+  git checkout -b новая_ветка
+  git add .
+  git commit -m "Добавил изменения в новой ветке"
+  git checkout master
+  git merge новая_ветка
   ```
 
  10. Удаление побочной ветки
